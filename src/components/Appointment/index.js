@@ -78,6 +78,7 @@ export default function Appointment(props) {
             transition(DELETING);
           }}
           onCancel={back}
+          message="Are you sure you want to delete?"
         />
       )}
     </article>
