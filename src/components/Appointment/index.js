@@ -10,6 +10,7 @@ import useVisualMode from "hooks/useVisualMode";
 import Form from "./Form";
 import Confirm from "./Confirm";
 import Status from "./Status";
+import Error from "./Error";
 
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
@@ -74,13 +75,19 @@ export default function Appointment(props) {
       )}
       {mode === CONFIRM && (
         <Confirm
-          onConfirm={() => transition(DELETING)}
+          onConfirm={destroy}
           onCancel={back}
           message="Are you sure you want to delete?"
         />
       )}
       {mode === DELETING && <Status message="Deleting" />}
       {mode === SAVING && <Status message="Saving" />}
+      {mode === ERROR_SAVE && (
+        <Error message="Could not book appointment." onClose={back} />
+      )}
+      {mode === ERROR_DELETE && (
+        <Error message="Could not cancel appointment." onClose={back} />
+      )}
     </article>
   );
 }
