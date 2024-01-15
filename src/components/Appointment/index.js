@@ -9,6 +9,7 @@ import Show from "components/Appointment/Show";
 import useVisualMode from "hooks/useVisualMode";
 import Form from "./Form";
 import Confirm from "./Confirm";
+import Status from "./Status";
 
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
@@ -21,7 +22,6 @@ const ERROR_SAVE = "ERROR_SAVE";
 const ERROR_DELETE = "ERROR_DELETE";
 
 export default function Appointment(props) {
-  console.log(props);
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
@@ -74,13 +74,12 @@ export default function Appointment(props) {
       )}
       {mode === CONFIRM && (
         <Confirm
-          onConfirm={() => {
-            transition(DELETING);
-          }}
+          onConfirm={() => transition(DELETING)}
           onCancel={back}
           message="Are you sure you want to delete?"
         />
       )}
+      {mode === DELETING && <Status message="Deleting" />}
     </article>
   );
 }
