@@ -19,15 +19,14 @@ export default function Appointment(props) {
   return (
     <article className="appointment" data-testid="appointment">
       <Header time={props.time} />
-      {props.interview ? (
+      {mode === EMPTY && <Empty onAdd={() => console.log("Clicked onAdd")} />}
+      {mode === SHOW && (
         <Show
           student={props.interview.student}
           interviewer={props.interview.interviewer}
           onDelete={() => console.log("CONFIRM")}
           onEdit={() => console.log("EDIT")}
         />
-      ) : (
-        <Empty onAdd={() => console.log("CREATE")} />
       )}
     </article>
   );
