@@ -30,7 +30,9 @@ export default function Appointment(props) {
           onEdit={() => console.log("EDIT")}
         />
       )}
-      {mode === CREATE && <Form interviewers={props.interviewers} />}
+      {mode === CREATE && (
+        <Form interviewers={props.interviewers} onCancel={() => back(EMPTY)} />
+      )}
     </article>
   );
 }
