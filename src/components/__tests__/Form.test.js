@@ -47,10 +47,20 @@ describe("Form", () => {
 
   it("validates that the interviewer cannot be null", () => {
     /* 1. Create the mock onSave function */
+    const onSave = jest.fn();
 
     /* 2. Render the Form with interviewers and the onSave mock function passed as an onSave prop, the interviewer prop should be null */
+    const { getByText } = render(
+      <Form
+        interviewers={interviewers}
+        onSave={onSave}
+        name="Lydia Miller-Jones"
+        interviewer={null}
+      />
+    );
 
     /* 3. Click the save button */
+    fireEvent.click(getByText("Save"));
 
     expect(getByText(/please select an interviewer/i)).toBeInTheDocument();
     expect(onSave).not.toHaveBeenCalled();
@@ -58,6 +68,7 @@ describe("Form", () => {
 
   it("calls onSave function when the name and interviewer is defined", () => {
     /* 1. Create the mock onSave function */
+    const onSave = jest.fn();
 
     /* 2. Render the Form with interviewers, name and the onSave mock function passed as an onSave prop */
 
