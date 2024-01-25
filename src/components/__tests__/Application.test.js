@@ -55,8 +55,13 @@ describe("Form", () => {
     //Check if an appointment is successfully created by checking if student name is in the document
     await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
 
+    //Check if Monday is being displayed in DayListItem component
+    const day = getAllByTestId(container, "day").find((day) =>
+      queryByText(day, "Monday")
+    );
+
     // console.log(debug());
 
-    // console.log(prettyDOM(appointment));
+    console.log(prettyDOM(day));
   });
 });
