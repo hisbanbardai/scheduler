@@ -41,5 +41,8 @@ describe("Form", () => {
     fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
       target: { value: "Lydia Miller-Jones" },
     });
+
+    //Select Interviewer
+    fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
   });
 });
