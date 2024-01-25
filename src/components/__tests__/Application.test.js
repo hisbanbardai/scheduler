@@ -13,6 +13,7 @@ import {
 } from "@testing-library/react";
 
 import Application from "components/Application";
+import { Value } from "sass";
 
 afterEach(cleanup);
 
@@ -35,5 +36,10 @@ describe("Form", () => {
 
     //Click on Add button
     fireEvent.click(getByAltText(appointment, "Add"));
+
+    //Enter student name
+    fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
+      target: { value: "Lydia Miller-Jones" },
+    });
   });
 });
