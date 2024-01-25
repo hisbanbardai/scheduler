@@ -10,6 +10,7 @@ import {
   getAllByTestId,
   getByAltText,
   getByPlaceholderText,
+  queryByText,
 } from "@testing-library/react";
 
 import Application from "components/Application";
@@ -48,7 +49,11 @@ describe("Form", () => {
     //click on save button
     fireEvent.click(getByText(appointment, "Save"));
 
+    //Check if "Saving" state is being displayed
     expect(getByText(appointment, "Saving")).toBeInTheDocument();
+
+    //Check if an appointment is successfully created by checking if student name is in the document
+    await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
 
     // console.log(debug());
 
