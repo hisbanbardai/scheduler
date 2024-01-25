@@ -44,5 +44,8 @@ describe("Form", () => {
 
     //Select Interviewer
     fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
+
+    //Click on save button
+    fireEvent.click(getByText(appointment, "Save"));
   });
 });
