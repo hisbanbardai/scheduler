@@ -8,6 +8,8 @@ import {
   getByText,
   prettyDOM,
   getAllByTestId,
+  getByAltText,
+  getByPlaceholderText,
 } from "@testing-library/react";
 
 import Application from "components/Application";
@@ -28,7 +30,10 @@ describe("Form", () => {
     const { container } = render(<Application />);
     await waitForElement(() => getByText(container, "Archie Cohen"));
     // console.log(prettyDOM(container));
-    const appointments = getAllByTestId(container, "appointment");
-    console.log(prettyDOM(appointments));
+    const appointment = getAllByTestId(container, "appointment")[0];
+    // console.log(prettyDOM(appointment));
+
+    //Click on Add button
+    fireEvent.click(getByAltText(appointment, "Add"));
   });
 });
