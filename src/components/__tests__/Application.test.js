@@ -13,7 +13,6 @@ import {
 } from "@testing-library/react";
 
 import Application from "components/Application";
-import { Value } from "sass";
 
 afterEach(cleanup);
 
@@ -27,14 +26,15 @@ describe("Form", () => {
     });
   });
 
-  it("loads data, books an interview and reduces the spots remaining for the first day by 1", async () => {
+  it("loads data, books an interview and reduces the spots remaining for Monday by 1", async () => {
     const { container } = render(<Application />);
-    await waitForElement(() => getByText(container, "Archie Cohen"));
-    // console.log(prettyDOM(container));
-    const appointment = getAllByTestId(container, "appointment")[0];
-    // console.log(prettyDOM(appointment));
 
-    //Click on Add button
+    await waitForElement(() => getByText(container, "Archie Cohen"));
+
+    const appointments = getAllByTestId(container, "appointment");
+    const appointment = appointments[0];
+
+    //Click on add button
     fireEvent.click(getByAltText(appointment, "Add"));
 
     //Enter student name
@@ -42,10 +42,12 @@ describe("Form", () => {
       target: { value: "Lydia Miller-Jones" },
     });
 
-    //Select Interviewer
+    //Select interviewer
     fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
 
-    //Click on save button
+    //click on save button
     fireEvent.click(getByText(appointment, "Save"));
+
+    console.log(prettyDOM(appointment));
   });
 });
