@@ -93,6 +93,8 @@ describe("Form", () => {
     expect(getByText(appointment, "Deleting")).toBeInTheDocument();
 
     // 7. Wait until the element with the "Add" button is displayed.
+    await waitForElement(() => getByAltText(appointment, "Add"));
+
     // 8. Check that the DayListItem with the text "Monday" also has the text "2 spots remaining".
     debug();
   });
