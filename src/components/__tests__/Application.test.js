@@ -87,7 +87,7 @@ describe("Form", () => {
     ).toBeInTheDocument();
 
     // 5. Click the "Confirm" button on the confirmation.
-    fireEvent.click(getByText(appointment, "Confirm"));
+    fireEvent.click(queryByText(appointment, "Confirm"));
 
     // 6. Check that the element with the text "Deleting" is displayed.
     expect(getByText(appointment, "Deleting")).toBeInTheDocument();
@@ -100,6 +100,6 @@ describe("Form", () => {
       queryByText(day, "Monday")
     );
     expect(getByText(day, /2 spots remaining/i)).toBeInTheDocument();
-    debug();
+    // debug();
   });
 });
