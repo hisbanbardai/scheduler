@@ -125,8 +125,8 @@ describe("Form", () => {
     // 5. Click on the "Save" button.
     fireEvent.click(queryByText(appointment, "Save"));
 
-    // // 6. Check that the element with the text "Deleting" is displayed.
-    // expect(getByText(appointment, "Deleting")).toBeInTheDocument();
+    // 6. Check that the element with the text "Saving" is displayed.
+    expect(getByText(appointment, "Saving")).toBeInTheDocument();
 
     // // 7. Wait until the element with the "Add" button is displayed.
     // await waitForElement(() => getByAltText(appointment, "Add"));
