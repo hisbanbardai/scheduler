@@ -122,8 +122,8 @@ describe("Form", () => {
       target: { value: "Lydia Miller-Jones" },
     });
 
-    // // 5. Click the "Confirm" button on the confirmation.
-    // fireEvent.click(queryByText(appointment, "Confirm"));
+    // 5. Click on the "Save" button.
+    fireEvent.click(queryByText(appointment, "Save"));
 
     // // 6. Check that the element with the text "Deleting" is displayed.
     // expect(getByText(appointment, "Deleting")).toBeInTheDocument();
