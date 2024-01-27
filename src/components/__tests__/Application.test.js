@@ -117,10 +117,10 @@ describe("Form", () => {
 
     fireEvent.click(queryByAltText(appointment, "Edit"));
 
-    // // 4. Check that the confirmation message is shown.
-    // expect(
-    //   getByText(appointment, "Are you sure you want to delete?")
-    // ).toBeInTheDocument();
+    // 4. Change the student name.
+    fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
+      target: { value: "Lydia Miller-Jones" },
+    });
 
     // // 5. Click the "Confirm" button on the confirmation.
     // fireEvent.click(queryByText(appointment, "Confirm"));
