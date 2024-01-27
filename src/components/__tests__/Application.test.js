@@ -128,8 +128,8 @@ describe("Form", () => {
     // 6. Check that the element with the text "Saving" is displayed.
     expect(getByText(appointment, "Saving")).toBeInTheDocument();
 
-    // // 7. Wait until the element with the "Add" button is displayed.
-    // await waitForElement(() => getByAltText(appointment, "Add"));
+    // 7. Wait until the element with the "Edit" button is displayed.
+    await waitForElement(() => getByAltText(appointment, "Edit"));
 
     // // 8. Check that the DayListItem with the text 'Monday' also has the text '2 spots remaining'.
     // const day = getAllByTestId(container, "day").find((day) =>
