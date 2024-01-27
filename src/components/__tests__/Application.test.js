@@ -139,4 +139,8 @@ describe("Form", () => {
     expect(getByText(day, /1 spot remaining/i)).toBeInTheDocument();
     // debug();
   });
+
+  it("shows the save error when failing to save an appointment", () => {
+    axios.put.mockRejectedValueOnce();
+  });
 });
