@@ -128,14 +128,14 @@ describe("Form", () => {
     // 6. Check that the element with the text "Saving" is displayed.
     expect(getByText(appointment, "Saving")).toBeInTheDocument();
 
-    // 7. Wait until the element with the "Edit" button is displayed.
-    await waitForElement(() => getByAltText(appointment, "Edit"));
+    // 7.  Wait until the element with student name is in the document.
+    await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
 
-    // // 8. Check that the DayListItem with the text 'Monday' also has the text '2 spots remaining'.
-    // const day = getAllByTestId(container, "day").find((day) =>
-    //   queryByText(day, "Monday")
-    // );
-    // expect(getByText(day, /2 spots remaining/i)).toBeInTheDocument();
-    debug();
+    // 8. Check that the DayListItem with the text "Monday" has same number of spots remaining.
+    const day = getAllByTestId(container, "day").find((day) =>
+      queryByText(day, "Monday")
+    );
+    expect(getByText(day, /1 spot remaining/i)).toBeInTheDocument();
+    // debug();
   });
 });
